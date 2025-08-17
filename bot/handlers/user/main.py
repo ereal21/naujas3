@@ -24,6 +24,9 @@ from bot.handlers.other import get_bot_user_ids, get_bot_info
 # Import keyboards directly from the inline module to avoid missing
 # attribute issues when the package-level namespace is limited.
 from bot.keyboards.inline import (
+
+from bot.keyboards import (
+
     main_menu,
     categories_list,
     goods_list,
@@ -32,6 +35,10 @@ from bot.keyboards.inline import (
     back,
     item_info,
     profile,
+codex/fix-syntax-error-in-main.py-wvzpun
+
+
+main
 )
 from bot.localization import t
 from bot.logger_mesh import logger

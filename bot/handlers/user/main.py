@@ -23,7 +23,15 @@ from bot.database.methods import (
 )
 from bot.utils.files import cleanup_item_file
 from bot.handlers.other import get_bot_user_ids, get_bot_info
-from bot.keyboards import main_menu, categories_list, goods_list, subcategories_list, user_items_list, back, item_info, \
+from bot.keyboards import (
+    main_menu,
+    categories_list,
+    goods_list,
+    subcategories_list,
+    user_items_list,
+    back,
+    item_info,
+)
 from bot.localization import t
 from bot.logger_mesh import logger
 from bot.misc import TgConfig, EnvKeys
@@ -242,7 +250,13 @@ async def process_blackjack_bet(message: Message):
     }
     TgConfig.STATE[user_id] = 'blackjack_game'
     text = format_blackjack_state(player, dealer, hide_dealer=True)
-    await bot.edit_message_text(text,
+    await bot.edit_message_text(
+        text,
+        chat_id=message.chat.id,
+        message_id=message_id,
+        reply_markup=blackjack_controls(),
+    )
+
 
 async def blackjack_move_handler(call: CallbackQuery):
     bot, user_id = await get_bot_user_ids(call)

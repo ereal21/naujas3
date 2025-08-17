@@ -30,6 +30,8 @@ from bot.keyboards import (
     back,
     item_info,
     profile,
+
+main
 )
 from bot.localization import t
 from bot.logger_mesh import logger
